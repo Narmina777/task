@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Enter a string: ");
+        string inputString = Console.ReadLine().ToLower();
+
+        Dictionary<char, int> countDict = new Dictionary<char, int>();
+
+        foreach (char c in inputString)
+        {
+            if (Char.IsLetter(c))
+            {
+                if (!countDict.ContainsKey(c)) countDict.Add(c, 0);
+                countDict[c]++;
+            }
+        }
+
+        foreach (var item in countDict)
+        {
+            Console.WriteLine($"{item.Key} - {item.Value}");
+        }
+    }
+}
